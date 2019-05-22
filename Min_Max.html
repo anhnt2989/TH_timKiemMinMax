@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực hành tìm kiếm giá trị min-max</title>
+</head>
+<div class="nd">
+    <p>Nhập vào mảng gồm các số</p>
+    (Lưu ý : các phần tử được ngăn cách bởi dấu ",")
+    <br><br>
+    <label for="input"></label><input type="text" id="input" placeholder="Nhập mảng">
+    <br><br>
+    <input type="button" value="Tìm" onclick="find();"/>
+    <br><br><br>
+    <p id="kq"></p>
+    <p id="kq1"></p>
+</div>
+<body>
+            <script>
+                let array = document.getElementById("input").value.split(",");
+                function findMin(arr) {
+                    let min = arr[0];
+                    for (let i=0;i<arr.length;i++) {
+                        if (min>Number(arr[i])) {
+                            min = arr[i];
+                        }
+                    }
+                    return min;
+                }
+                function findMax(arr) {
+                    let max = arr[0];
+                    for (let i=0;i<arr.length;i++) {
+                        if (Number(arr[i]) > max) {
+                            max = arr[i];
+                        }
+                    }
+                    return max;
+                }
+                function find() {
+                    let min = findMin(array);
+                    let max = findMax(array);
+                    document.getElementById("kq").innerText = "Giá trị nhỏ nhất trong mảng là : " + min;
+                    document.getElementById("kq1").innerText = "Giá trị lớn nhất trong mảng là : " + max;
+                }
+            </script>
+</body>
+</html>
